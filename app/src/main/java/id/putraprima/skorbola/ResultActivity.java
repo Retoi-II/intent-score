@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class ResultActivity extends AppCompatActivity {
 
     private TextView tvTextView3;
+    private ImageView ivWinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,11 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         getSupportActionBar().hide();
 
+        ivWinner = findViewById(R.id.imgWinner);
         tvTextView3 = findViewById(R.id.textView3);
+
         tvTextView3.setText(getIntent().getExtras().getString("winner"));
+        ivWinner.setImageURI(Uri.parse(getIntent().getExtras().getString("image")));
 
     }
 }

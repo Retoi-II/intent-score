@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/colorAccent"
+        android:padding="5dp"
         android:orientation="vertical"
-        android:weightSum="3"
         android:gravity="center"
         android:layout_gravity="center">
 
@@ -23,23 +23,53 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:layout_weight="1"
             android:textAlignment="center"
             android:text="Hasil"
             android:textStyle="normal"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:gravity="center_horizontal" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:layout_margin="3dp"
+            android:padding="5dp"
+            android:orientation="horizontal"
             android:background="@color/white"
-            android:text="Name Of Winning Team"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:textAlignment="center" />
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgWinner"
+                android:layout_width="155dp"
+                android:layout_height="155dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pemenang"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:hint="Name Of Winning Team"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

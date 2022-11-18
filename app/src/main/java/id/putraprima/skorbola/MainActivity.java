@@ -91,15 +91,17 @@ public class MainActivity extends AppCompatActivity {
                 s_HomeTeam = etHomeTeam.getText().toString();
                 s_AwayTeam = etAwayTeam.getText().toString();
 
-                Intent move = new Intent(MainActivity.this, MatchActivity.class);
-
-                //Set Data
-                move.putExtra("moveHomeTeam",s_HomeTeam);
-                move.putExtra("moveAwayTeam", s_AwayTeam);
-                move.putExtra("homeImg", imgUri.toString());
-                move.putExtra("awayImg", imgUri2.toString());
-
-                startActivity(move);
+                if (imgUri!=null && imgUri2!=null) {
+                    Intent move = new Intent(MainActivity.this, MatchActivity.class);
+                    //Set Data
+                    move.putExtra("moveHomeTeam",s_HomeTeam);
+                    move.putExtra("moveAwayTeam", s_AwayTeam);
+                    move.putExtra("homeImg", imgUri.toString());
+                    move.putExtra("awayImg", imgUri2.toString());
+                    startActivity(move);
+                } else {
+                    Toast.makeText(MainActivity.this, "Anda belum memasukkan gambar", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

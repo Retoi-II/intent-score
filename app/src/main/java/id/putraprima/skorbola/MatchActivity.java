@@ -19,7 +19,7 @@ public class MatchActivity extends AppCompatActivity {
     private Button btnAddHome, btnAddHome2, btnAddHome3;
     private Button btnAddAway, btnAddAway2, btnAddAway3;
     private Button btnResult, btnReset;
-    private String s_Winner,s_TxtHome, s_TxtAway;
+    private String s_Winner, i_winner, s_TxtHome, s_TxtAway, s_imgHome, s_imgAway;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,8 @@ public class MatchActivity extends AppCompatActivity {
         tvTxtAway.setText(s_TxtAway);
         ivHomeLogo.setImageURI(Uri.parse(bundle.getString("homeImg")));
         ivAwayLogo.setImageURI(Uri.parse(bundle.getString("awayImg")));
+        s_imgHome = getIntent().getExtras().getString("homeImg");
+        s_imgAway = getIntent().getExtras().getString("awayImg");
 
         //2.Tombol add score menambahkan satu angka dari angka 0, setiap kali di tekan
         tvScoreHome = findViewById(R.id.score_home);
@@ -126,18 +128,23 @@ public class MatchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 s_Winner = "empty";
+                i_winner = "empty";
                 if(iHomeScore > iAwayScore){
                     s_Winner = s_TxtHome;
+                    i_winner = s_imgHome;
                 }
                 else if (iHomeScore < iAwayScore){
                     s_Winner = s_TxtAway;
+                    i_winner = s_imgAway;
                 }
                 else {
+                    i_winner = "draw";
                     s_Winner = "draw";
                 }
 
                 Intent intent = new Intent(MatchActivity.this, ResultActivity.class);
                 intent.putExtra("winner", s_Winner);
+                intent.putExtra("image", i_winner);
                 startActivity(intent);
             }
         });
